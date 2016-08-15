@@ -1,7 +1,6 @@
 package io.github.manankalra.miwok;
 
 
-
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -15,10 +14,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- *
- */
 public class FamilyFragment extends Fragment {
 
     private MediaPlayer mediaPlayer;
@@ -52,11 +47,16 @@ public class FamilyFragment extends Fragment {
 
 
         final ArrayList<Word> familyList = new ArrayList<>();
-        familyList.add(new Word("Father", "əpə", R.drawable.family_father, R.raw.family_father));familyList.add(new Word("Mother", "əṭa", R.drawable.family_mother, R.raw.family_mother));
-        familyList.add(new Word("Son", "Angsi", R.drawable.family_son, R.raw.family_son));familyList.add(new Word("Daughter", "Tune", R.drawable.family_daughter, R.raw.family_daughter));
-        familyList.add(new Word("Older Brother", "Taachi", R.drawable.family_older_brother, R.raw.family_older_brother));familyList.add(new Word("Younger Brother", "Chalitti", R.drawable.family_younger_brother, R.raw.family_younger_brother));
-        familyList.add(new Word("Older Sister", "Teṭe",R.drawable.family_older_sister, R.raw.family_older_sister));familyList.add(new Word("Younger Sister", "Kolliti", R.drawable.family_younger_sister, R.raw.family_younger_sister));
-        familyList.add(new Word("Grandfather", "Paapa", R.drawable.family_grandfather, R.raw.family_grandfather));familyList.add(new Word("Grandmother", "Ama", R.drawable.family_grandmother, R.raw.family_grandmother));
+        familyList.add(new Word("Father", "əpə", R.drawable.family_father, R.raw.family_father));
+        familyList.add(new Word("Mother", "əṭa", R.drawable.family_mother, R.raw.family_mother));
+        familyList.add(new Word("Son", "Angsi", R.drawable.family_son, R.raw.family_son));
+        familyList.add(new Word("Daughter", "Tune", R.drawable.family_daughter, R.raw.family_daughter));
+        familyList.add(new Word("Older Brother", "Taachi", R.drawable.family_older_brother, R.raw.family_older_brother));
+        familyList.add(new Word("Younger Brother", "Chalitti", R.drawable.family_younger_brother, R.raw.family_younger_brother));
+        familyList.add(new Word("Older Sister", "Teṭe", R.drawable.family_older_sister, R.raw.family_older_sister));
+        familyList.add(new Word("Younger Sister", "Kolliti", R.drawable.family_younger_sister, R.raw.family_younger_sister));
+        familyList.add(new Word("Grandfather", "Paapa", R.drawable.family_grandfather, R.raw.family_grandfather));
+        familyList.add(new Word("Grandmother", "Ama", R.drawable.family_grandmother, R.raw.family_grandmother));
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), familyList, R.color.category_family);
         ListView rootFamily = (ListView) rootView.findViewById(R.id.rootFamily);
@@ -73,11 +73,11 @@ public class FamilyFragment extends Fragment {
                     mediaPlayer.start();
                     mediaPlayer.setOnCompletionListener(completionListener);
                 }
-
             }
         });
         return rootView;
     }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -86,15 +86,15 @@ public class FamilyFragment extends Fragment {
 
 
     private void releaseMediaPlayer() {
-        // If the media player is not null, then it may be currently playing a sound.
+        //If the media player is not null, then it may be currently playing a sound.
         if (mediaPlayer != null) {
-            // Regardless of the current state of the media player, release its resources
-            // because we no longer need it.
+            //Regardless of the current state of the media player, release its resources
+            //because we no longer need it.
             mediaPlayer.release();
 
-            // Set the media player back to null. For our code, we've decided that
-            // setting the media player to null is an easy way to tell that the media player
-            // is not configured to play an audio file at the moment.
+            //Set the media player back to null. For our code, we've decided that
+            //setting the media player to null is an easy way to tell that the media player
+            //is not configured to play an audio file at the moment.
             mediaPlayer = null;
             audioManager.abandonAudioFocus(onAudioFocusChangeListener);
         }

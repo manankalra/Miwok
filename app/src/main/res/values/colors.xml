@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Primary color of the app (shown in the app bar) -->
     <color name="primary_color">#4A312A</color>
 
@@ -20,4 +21,5 @@
 
     <!-- Background color for the phrases category -->
     <color name="category_phrases">#16AFCA</color>
+
 </resources>

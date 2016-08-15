@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class CategoryAdaptor extends FragmentPagerAdapter {
 
     private Context context;
+
     /**
      * Create a new {@link CategoryAdaptor} object.
      *

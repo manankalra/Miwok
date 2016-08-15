@@ -14,13 +14,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class PhrasesFragment extends Fragment {
 
     private MediaPlayer mediaPlayer;
-
     private AudioManager audioManager;
     private AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -48,11 +45,16 @@ public class PhrasesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_phrases, container, false);
         audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
         final ArrayList<Word> phrasesList = new ArrayList<>();
-        phrasesList.add(new Word("Where are you going?", "Minto wuksus", R.raw.phrase_where_are_you_going));phrasesList.add(new Word("What is your name?", "Tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
-        phrasesList.add(new Word("My name is...", "Oyaaset...", R.raw.phrase_my_name_is));phrasesList.add(new Word("How are you feeling?", "Michәksәs?", R.raw.phrase_how_are_you_feeling));
-        phrasesList.add(new Word("I’m feeling good.", "Kuchi achit", R.raw.phrase_im_feeling_good));phrasesList.add(new Word("Are you coming?", "Əәnәs'aa?", R.raw.phrase_are_you_coming));
-        phrasesList.add(new Word("Yes, I’m coming.", "Hәә’ әәnәm", R.raw.phrase_yes_im_coming));phrasesList.add(new Word("I’m coming.", "Əәnәm", R.raw.phrase_im_coming));
-        phrasesList.add(new Word("Let’s go.", "Yoowutis", R.raw.phrase_lets_go));phrasesList.add(new Word("Come here.", "Ənni'nem", R.raw.phrase_come_here));
+        phrasesList.add(new Word("Where are you going?", "Minto wuksus", R.raw.phrase_where_are_you_going));
+        phrasesList.add(new Word("What is your name?", "Tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
+        phrasesList.add(new Word("My name is...", "Oyaaset...", R.raw.phrase_my_name_is));
+        phrasesList.add(new Word("How are you feeling?", "Michәksәs?", R.raw.phrase_how_are_you_feeling));
+        phrasesList.add(new Word("I’m feeling good.", "Kuchi achit", R.raw.phrase_im_feeling_good));
+        phrasesList.add(new Word("Are you coming?", "Əәnәs'aa?", R.raw.phrase_are_you_coming));
+        phrasesList.add(new Word("Yes, I’m coming.", "Hәә’ әәnәm", R.raw.phrase_yes_im_coming));
+        phrasesList.add(new Word("I’m coming.", "Əәnәm", R.raw.phrase_im_coming));
+        phrasesList.add(new Word("Let’s go.", "Yoowutis", R.raw.phrase_lets_go));
+        phrasesList.add(new Word("Come here.", "Ənni'nem", R.raw.phrase_come_here));
 
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), phrasesList, R.color.category_phrases);
         ListView rootPhrases = (ListView) rootView.findViewById(R.id.rootPhrases);
@@ -74,24 +76,24 @@ public class PhrasesFragment extends Fragment {
         });
         return rootView;
     }
+
     @Override
     public void onStop() {
         super.onStop();
         releaseMediaPlayer();
     }
-    private void releaseMediaPlayer() {
-        // If the media player is not null, then it may be currently playing a sound.
-        if (mediaPlayer != null) {
-            // Regardless of the current state of the media player, release its resources
-            // because we no longer need it.
-            mediaPlayer.release();
 
-            // Set the media player back to null. For our code, we've decided that
-            // setting the media player to null is an easy way to tell that the media player
-            // is not configured to play an audio file at the moment.
+    private void releaseMediaPlayer() {
+        //If the media player is not null, then it may be currently playing a sound.
+        if (mediaPlayer != null) {
+            //Regardless of the current state of the media player, release its resources
+            //because we no longer need it.
+            mediaPlayer.release();
+            //Set the media player back to null. For our code, we've decided that
+            //setting the media player to null is an easy way to tell that the media player
+            //is not configured to play an audio file at the moment.
             mediaPlayer = null;
             audioManager.abandonAudioFocus(onAudioFocusChangeListener);
         }
     }
-
 }

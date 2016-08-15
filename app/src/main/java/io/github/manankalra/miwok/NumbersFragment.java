@@ -14,13 +14,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class NumbersFragment extends Fragment {
 
     private MediaPlayer mediaPlayer;
-
     private AudioManager audioManager;
     private AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -48,6 +44,7 @@ public class NumbersFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_numbers, container, false);
         audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+
         final ArrayList<Word> numbersList = new ArrayList<>();
         numbersList.add(new Word("One", "Lutti", R.drawable.number_one, R.raw.number_one));
         numbersList.add(new Word("Two", "Otiiko", R.drawable.number_two, R.raw.number_two));
@@ -59,6 +56,7 @@ public class NumbersFragment extends Fragment {
         numbersList.add(new Word("Eight", "Kawinta", R.drawable.number_eight, R.raw.number_eight));
         numbersList.add(new Word("Nine", "Wo'e", R.drawable.number_nine, R.raw.number_nine));
         numbersList.add(new Word("Ten", "Na'aacha", R.drawable.number_ten, R.raw.number_ten));
+
         WordAdapter itemsAdapter = new WordAdapter(getActivity(), numbersList, R.color.category_numbers);
         ListView rootNumbers = (ListView) rootView.findViewById(R.id.rootNumbers);
         rootNumbers.setAdapter(itemsAdapter);
@@ -86,18 +84,17 @@ public class NumbersFragment extends Fragment {
 
 
     private void releaseMediaPlayer() {
-        // If the media player is not null, then it may be currently playing a sound.
+        //If the media player is not null, then it may be currently playing a sound.
         if (mediaPlayer != null) {
-            // Regardless of the current state of the media player, release its resources
-            // because we no longer need it.
+            //Regardless of the current state of the media player, release its resources
+            //because we no longer need it.
             mediaPlayer.release();
 
-            // Set the media player back to null. For our code, we've decided that
-            // setting the media player to null is an easy way to tell that the media player
-            // is not configured to play an audio file at the moment.
+            //Set the media player back to null. For our code, we've decided that
+            //setting the media player to null is an easy way to tell that the media player
+            //is not configured to play an audio file at the moment.
             mediaPlayer = null;
             audioManager.abandonAudioFocus(onAudioFocusChangeListener);
         }
     }
-
 }
