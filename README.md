@@ -1,6 +1,10 @@
-Miwok
------
-An android app that displays a list of vocabulary words for the user to learn the Miwok language.
+##Miwok
+-------
+An android app that displays a list of vocabulary words and allows the user to listen to their correct pronunciation in order to learn the Miwok language.
+
+How to use?
+-----------
+Just clone the project locally and build it with Android Studio. Set-up an issue if you meet any problems while buiding it with Gradle.
 
 Pre-requisites
 --------------
