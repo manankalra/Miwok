@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Title for the application -->
     <string name="app_name">Miwok</string>
-
-    <!-- Category name for phrases -->
-    <string name="category_phrases">Phrases</string>
-
-    <!-- Category name for the vocabulary words for colors -->
-    <string name="category_colors">Colors</string>
 
     <!-- Category name for the vocabulary words for numbers -->
     <string name="category_numbers">Numbers</string>
 
     <!-- Category name for the vocabulary words for family members -->
     <string name="category_family">Family Members</string>
+
+    <!-- Category name for the vocabulary words for colors -->
+    <string name="category_colors">Colors</string>
+
+    <!-- Category name for phrases -->
+    <string name="category_phrases">Phrases</string>
+
 </resources>

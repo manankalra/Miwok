@@ -12,41 +12,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set the content of the activity to use the activity_main.xml layout file
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //Sets the content as activity_main.xml as the app runs
 
-
-        //Find the view that shows the numbers category
         TextView numbers = (TextView) findViewById(R.id.numbers);
         TextView phrases = (TextView) findViewById(R.id.phrases);
         TextView colors = (TextView) findViewById(R.id.colors);
         TextView family = (TextView) findViewById(R.id.family);
 
-
-        numbers.setOnClickListener(new View.OnClickListener(){
+        //Defines the behaviour of the app when a certain category is clicked
+        numbers.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
                 startActivity(numbersIntent);
             }
         });
-        phrases.setOnClickListener(new View.OnClickListener(){
+        phrases.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
                 startActivity(phrasesIntent);
             }
         });
-        colors.setOnClickListener(new View.OnClickListener(){
+        colors.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
                 startActivity(colorsIntent);
             }
         });
-        family.setOnClickListener(new View.OnClickListener(){
+        family.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
                 startActivity(familyIntent);
             }
